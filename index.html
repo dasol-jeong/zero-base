@@ -180,6 +180,195 @@
 
     <h1>code태그 - 인라인요소</h1>
 
-    <h1>a태그 - href</h1>
+    <h1>a태그 - href/하이퍼링크</h1>
+    <!-- a태그안에는 텍스트뿐만아니라, 문단/이미지도 넣을 수 있음 -->
+    <!-- 경로에는 절대/상대경로 있음 -->
+    <!-- 컴퓨터상에 전화/이메일 프로그램이 있으면 a태그안에 전화/이메일 넣을 수 있음 -->
+    <a href="https://developer.mozilla.org/ko/">Mozilla</a>
+    <!-- 절대경로 -->
+    <!-- 절대경로는 현재위치와 상관없음, 그 절대값 위치로 이동 -->
+    <a href="another/index.html">상대경로</a>
+    <!-- 이런게 상대경로 -->
+    <!-- 상대경로는 현재위치를 기준으로 -->
+
+    <h1>target : a태그에서 사용되는 속성</h1>
+    <!-- 기본값은 _self로 현재 페이지에서 열린다 -->
+    <a href="https://developer.mozilla.org/ko/" target="_blank">Mozilla</a>
+    <!-- _blank는 새로운 페이지에서 열림 -->
+
+    <h1>Entity : HTML에 특수문자를 표현하기 위한</h1>
+    <!-- w3c entity검색하여 사이트 참고하여 html에서 특수문자 사용 -->
+    <p>다섯개의 스페이싱( )</p>
+    <pre>
+      문단을 나타내는 태그는 <p></p>태그입니다.
+    </pre>
+    <hr />
+    <pre>
+      문단을 나타내는 태그는 &lt;p&gt;&lt;/p&gt;태그입니다.
+    </pre>
+    <!-- 특수문자 적용된 것 -->
+    <pre>
+      &lt; = <
+      &gt; = >  
+      &quot; = "
+      &apos; = '
+      &amp; = &
+      &nbsp; = (스페이싱) 
+    </pre>
+
+    <h1>div태그 : container -> 순수컨테이너로 아무것도 표현하지 않음/블록</h1>
+    <!-- 전역속성 -->
+    <!-- 의미가 있을때 사용하면 안돼, 의미가 없을때에만 사용 -->
+    <span style="border: 1px solid black">Lorem ipsum</span>
+    <span style="border: 1px solid black">Lorem ipsum</span>
+    <div style="border: 1px solid black">Lorem ipsum</div>
+    <span style="border: 1px solid black">Lorem ipsum</span>
+
+    <h1>span태그 : container -> 순수컨테이너로 인라인 요소</h1>
+    <span style="border: 1px solid black">Lorem ipsum</span>
+    <span style="border: 1px solid black">Lorem ipsum</span>
+    <span style="border: 1px solid black">Lorem ipsum</span>
+
+    <h1>
+      시맨틱웹 - 의미가 있음/요소의 의미를 고려하여 구조를 설계하고 코드 작성
+    </h1>
+    <!-- 레이아웃을 짤 때 시맨틱 태그를 사용하여 시맨틱 웹으로 설계하는 게 좋음 -->
+    <h2>
+      &lt;header&gt; : 소개 및 탐색에 도움을 주는
+      콘텐츠/제목,로고,검색,폼,작성자 이름 등 들어가는 웹사이트 맨 윗부분 메뉴
+    </h2>
+    <!-- 웹페이지의 header는 하나만 사용하기 -->
+    <!-- header내에 또 다른 header, footer내에 또다른 footer못 넣어 -->
+
+    <h2>&lt;nav&gt; : 현재 페이지에서 탐색하는 기능도 함</h2>
+    <h2>&lt;aside&gt; : 사이드바 부분</h2>
+    <h2>&lt;main&gt; : 주요 콘텐츠, main태그는 하나여야돼</h2>
+    <!-- 인터넷 익스플로러에선 사용 안됨 -->
+    <!-- 모든컨텐츠를 아우르는 바깥쪽 컨테이너(?) -->
+    <!-- section안에 article 들어갈 수 있고, article안에 section 들어갈 수 있다. -->
+    <h2>&lt;section&gt; : article이 될 수 없다면 section을 사용해라</h2>
+
+    <h1>LIST</h1>
+    <!-- ol에는 type 속성을 가지고 있음 -->
+    <!-- ol과 ul은 중첩해서 사용가능 -->
+    <h2>ol : ordered list</h2>
+    <ol type="A">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ol>
+
+    <h2>ul : unordered list</h2>
+    <ul>
+      <li>Milk</li>
+      <li>
+        Cheese
+        <ul>
+          <li>Blue cheese</li>
+          <li>Feta</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>li : list item</h2>
+    <ol>
+      <li>AAA</li>
+      <li value="5">BBB</li>
+      <li>CCC</li>
+    </ol>
+    <!-- li에는 value라는 속성을 가질 수 있어 -->
+
+    <h1>
+      dl/dt/dd태그 : dl은 설명 목록태그이다. dt는 용어를 dd는 그 용어의 설명으로
+      사용
+    </h1>
+    <!-- dl태그는 div를 자식으로 여러명 가질 수 있지만, dt와 dd는 div를 같은 형제와 자식으로 가질 수 없어. -->
+    <dl>
+      <dt>Beast of Bodmin</dt>
+      <dd>A large feline inhabiting Bodmin Moor.</dd>
+
+      <dt>Morgawr</dt>
+      <dd>A sea serpent.</dd>
+
+      <dt>Owlman</dt>
+      <dd>A giant owl-like creature.</dd>
+    </dl>
+
+    <h1>table태그</h1>
+    <table>
+      <tr>
+        <th scope="col">나라이름</th>
+        <th scope="col">수도</th>
+        <th scope="col">인구</th>
+      </tr>
+      <tr>
+        <th scope="row">한국</th>
+        <td>서울</td>
+        <td>5100만</td>
+      </tr>
+      <tr>
+        <th scope="row">미국</th>
+        <td>워싱턴</td>
+        <td>3억</td>
+      </tr>
+      <tr>
+        <th scope="row">태국</th>
+        <td>방콕</td>
+        <td>6900만</td>
+      </tr>
+      <tr>
+        <th colspan="2">합계</th>
+        <td>4억 2000만</td>
+      </tr>
+    </table>
+
+    <h1>thead/tbody/tfoot태그</h1>
+    <!-- thead를 사용하면 형제로 tr사용 못해. 형제로 tbody,tfoot사용하기! 그리고 그 안에 tr쓰기 -->
+
+    <h1>cation태그 : table태그에서 사용하기 위한</h1>
+    <!-- table태그 요소의 첫번째 자식으로 들어가야해. 즉 맨 앞에 써!-->
+    <table>
+      <caption>
+        이번달 지출내역
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">품목</th>
+          <th scope="col">지출</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan="2">식재료</th>
+        </tr>
+        <tr>
+          <th scope="row">대파</th>
+          <td>3000</td>
+        </tr>
+        <tr>
+          <th scope="row">달걀</th>
+          <td>4000</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th colspan="2">기타 품목</th>
+        </tr>
+        <tr>
+          <th scope="row">고양이간식</th>
+          <td>3000</td>
+        </tr>
+        <tr>
+          <th scope="row">종이봉투</th>
+          <td>4000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">Totals</th>
+          <td>30000</td>
+        </tr>
+      </tfoot>
+    </table>
   </body>
 </html>
