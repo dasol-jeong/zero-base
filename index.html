@@ -370,5 +370,239 @@
         </tr>
       </tfoot>
     </table>
+
+    <h1>img태그 - src속성은 필수</h1>
+    <!-- src속성에는 상대경로와 절대경로 있음 -->
+    <!-- alt속성은 웹접근성을 위해 사용/스크린리더가 읽음 -->
+    <img
+      src="http://image.dongascience.com/Photo/2017/03/14900752352661.jpg"
+      alt="강아지"
+      title="강아지"
+      width="100"
+      height="100"
+    />
+    <!-- jpeg,png는 정지 이미지 
+    png는 투명도 적용 가능/jpeg보다 화질 좋음 
+    gif는 여러장의 이미지로 이루어진 애니메이션 표현가능/화질 좋지 않음
+    svg는 벡터 이미지/아이콘이나 다이어그램등에 사용
+    webp는 구글에서 만든 이미지 포맷, 아직까지 지원안하는 브라우저가 많음 jpeg,png보다 좋아/용량은 적은데 고화질-->
+
+    <h1>반응형 이미지(srcset)</h1>
+    <!-- 너비서술자 : w
+    밀도서술자 : x -->
+    <img
+      src="image/600.png"
+      srcset="image/300.png 300w, image/450.png 450w, image/600.png 600w"
+      alt="responsive images"
+    />
+
+    <h1>반응형 이미지(sizes)</h1>
+    <!-- 너비서술자 : w
+    밀도서술자 : x -->
+    <img
+      src="image/600.png"
+      srcset="image/300.png 300w, image/450.png 450w, image/600.png 600w"
+      sizes="(min-width:600px) 600px,
+      (min-width:450px) 450px,
+      300px"
+      alt="responsive images"
+    />
+
+    <h1>video태그</h1>
+    <video src="비디오 경로">sorry...</video>
+    <!-- 만약 비디오 주소가 잘못되거나 등 브라우저에 비디오가 나오지 않으면 video태그 사이의 내용이 브라우저에 출력됨 -->
+    <video>
+      <source src="비디오 경로" />
+      sorry
+    </video>
+    <!-- 이렇게 작성도 가능 -->
+    <!-- 속성 -->
+    <!-- controls : 재생버튼, 음량 버튼 패널 나타남 -->
+    <!-- autoplay : 자동재생/but 사운드있는 비디오는 멈춤 -->
+    <!-- muted : 음소거 속성 -->
+    <!-- poster : 비디오 썸네일 -->
+    <!-- video도 width와 height 줄 수 있어 -->
+
+    <h1>audio태그</h1>
+    <!-- video,audio 둘다 autoplay속성 사용하기 어려움 -->
+
+    <h1>iframe - 인라인요소</h1>
+    <!-- 주로 지도 웹페이지 내에 넣을때(띄어줄때) 사용 -->
+
+    <h1>form : 사용자가 입력할 수 있는 장치를 만들어주는/대화형 컨트롤</h1>
+    <form action="이 form을 보낼 주소" method="GET/POST">
+      <input type="text" name="test" />
+      <button type="submit">제출</button>
+    </form>
+    <!-- GET : 사용자가 입력한 데이터가 주소창에 보여짐, 주로 검색에 사용 -> 보안관련된거에는 사용하면 안됨 -->
+    <!-- POST : 데이터가 보이지 않음, 회원가입 로그인 등에 사용 -->
+
+    <h1>input</h1>
+    <!-- 주로 label과 input은 한 쌍으로 사용됨 -> 웹접근성에 좋음 -->
+    <!-- input은 한줄만 입력 가능하며, 개행 불가능 -->
+    <form action="이 form을 보낼 주소" method="GET">
+      <div>
+        <label for="foodname">음식이름 :</label>
+        <input type="text" name="food" id="foodname" />
+      </div>
+      <!-- label과 input을 형제로 쓸거면 이렇게 써야함 -->
+      <div>
+        <label
+          >음식이름 :
+          <input type="text" name="color" />
+        </label>
+      </div>
+      <!-- label내에 input 넣으면 이렇게 작성해도 위랑 똑같이 동작함  -->
+      <button type="submit">제출</button>
+    </form>
+    <!-- label의 for은 input의 id와 쌍을 이룸 -->
+    <!-- id는 한 문서에서 겹치면 안돼 -->
+    <!-- 웹 접근성을 위하여 label에는 이미지보단 텍스트로 정확히 어떤것을 의미하는지 표시하기 -->
+
+    <h1>fieldset</h1>
+    <form action="이 form을 보낼 주소" method="GET">
+      <fieldset>
+        <legend>예시1</legend>
+        <div>
+          <label for="foodname">음식이름 :</label>
+          <input type="text" name="food" id="foodname" disabled />
+        </div>
+      </fieldset>
+      <!-- disabled붙이면 입력불가능 -->
+      <!-- disabled는 아예 input창을 비활성화 시키는거, 입력도 전송도 안됨-->
+      <!-- readonly는 읽기 전용, 입력만 안되고 전송은 됨 -->
+
+      <!-- disabled는 fieldset 속성으로도 사용가능 그러면 그 fieldset에 있는 모든 입력창 입력불가능  -->
+      <fieldset>
+        <legend>예시2</legend>
+        <div>
+          <label for="color">색깔 :</label>
+          <input
+            type="text"
+            name="color"
+            id="color"
+            placeholder="초록"
+            autocomplete="off"
+            required
+          />
+        </div>
+      </fieldset>
+      <button type="submit">제출</button>
+    </form>
+    <!-- legend는 fieldset내에 첫번째 자식으로 와야함 -->
+    <!-- input type이 password라도 입력할땐 마스킹처리되지만, GET방식으로 넘기면 입력한 비밀번호 다 보임 -->
+    <!-- placeholder는 힌트라고 생각하면 됨 예시 -->
+    <!-- autocomplete는 자동완성기능임 on/off값으로 주면됨 -->
+    <!-- required는 boolean값으로 필수로 입력해야하는 의미 -->
+
+    <h1>자주 사용하는 form 요소들</h1>
+    <form action="" method="GET">
+      <div>
+        <label
+          >TIME :
+          <input type="time" name="time" />
+        </label>
+      </div>
+      <div>
+        <label
+          >MONTH :
+          <input type="month" name="month" />
+        </label>
+      </div>
+      <div>
+        <label
+          >DATE :
+          <input type="date" name="date" />
+        </label>
+      </div>
+      <div>
+        <label
+          >NUMBER :
+          <input type="number" name="number" />
+        </label>
+      </div>
+      <div>
+        <label
+          >RANGE :
+          <input type="range" name="range" />
+        </label>
+      </div>
+      <div>
+        <label
+          >CHECKBOX :
+          <input type="checkbox" name="check1" />
+          <input type="checkbox" name="check2" />
+          <input type="checkbox" name="check3" checked />
+        </label>
+      </div>
+      <div>
+        <label
+          >RADIO :
+          <input type="radio" name="radiobtn" value="r1" />
+          <input type="radio" name="radiobtn" value="r2" />
+          <input type="radio" name="radiobtn" value="r3" checked />
+        </label>
+      </div>
+      <!-- <button type="submit">제출</button> -->
+      <!-- 버튼 말고 input으로도 제출가능 -->
+      <input type="submit" value="제출하기" />
+      <!-- 문구 바꾸고싶으면 value를 통해 바꾸기 -->
+      <input type="reset" />
+    </form>
+
+    <!-- input마다 name을 지정해줘야지만 어떤 데이터인지 구분이 가능하다 name은 중요함 -->
+    <br />
+    <br />
+    <br />
+
+    <h1>select</h1>
+    <!-- select drop-down menu -->
+    <form action="" method="GET">
+      <label for="movie">좋아하는 영화: </label>
+      <select name="movie" id="movie" required>
+        <option value="">--please choose--</option>
+        <optgroup label="애니메이션">
+          <option value="토이">토이스토리</option>
+          <option value="주토피아" selected>주토피아</option>
+          <option value="인사이드아웃">인사이드아웃</option>
+        </optgroup>
+        <optgroup label="sf">
+          <option>인터스텔라</option>
+          <option>아이언맨</option>
+        </optgroup>
+      </select>
+      <input type="submit" />
+    </form>
+    <!-- option에 selected속성 넣으면 defalt값이 됨 -->
+    <!-- option에 value값이 없으면 안에 내부 내용을 value값으로 사용하니, value값에 빈 문자열 넣고 사용하기 -->
+    <!-- 서버로 보낼 땐 name값과 선택되 value값이 같이 넘어감 -->
+    <!-- option은 후보임,리스트 -->
+
+    <h1>datalist</h1>
+    <form action="" method="GET">
+      <label for="movie">좋아하는 영화: </label>
+      <input type="text" id="movie" name="movie" list="movie-list" />
+
+      <datalist id="movie-list">
+        <option>토이스토리</option>
+        <option>주토피아</option>
+        <option>인사이드아웃</option>
+      </datalist>
+
+      <input type="submit" />
+    </form>
+    <!-- select와 datalist의 차이점
+    select는 수정이 불가능
+    datalist는 수정이 가능하며, 키워드만 쳐도 그에 맞는 목록을 다보여줌. ->추천목록 -->
+
+    <h1>textarea</h1>
+    <!-- input은 한 줄만 입력받을 수 있지만, textarea는 여러줄을 입력받을 수 있다 -->
+    <!-- 빈 요소가 아닌 자식요소를 가질 수 있다 -->
+    <form action="" method="GET">
+      <label for="comment">댓글 :</label>
+      <textarea name="comment" id="comment" cols="30" rows="10"> </textarea>
+
+      <input type="submit" />
+    </form>
   </body>
 </html>
